@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:height="50dp"
-        android:text="Name"
+        android:hint="Search text..."
         android:ems="10"
         android:id="@+id/etSearch"
         />

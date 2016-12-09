@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.widget.EditText;
 
 import com.affixus.base.R;
 import com.affixus.base.adapter.SimulationRecylerViewWithFilterAdapter;
@@ -17,6 +21,9 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
     private static final String TAG = SimulationRecylerViewWithFilter.class.toString();
 
     private RecyclerView rvSimulation1;
+    private EditText etSearch;
+    SimulationRecylerViewWithFilterAdapter srvfAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +31,39 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
         setContentView(R.layout.activity_simulation_recyler_view_with_filter);
 
         initViewElements();
+        initSearchFilter();
+
 
         List<SamplePojo> dataList = getDataList();
-        SimulationRecylerViewWithFilterAdapter adapter = new SimulationRecylerViewWithFilterAdapter(dataList);
-        rvSimulation1.setAdapter(adapter);
+        srvfAdapter = new SimulationRecylerViewWithFilterAdapter(dataList);
+        rvSimulation1.setAdapter(srvfAdapter);
         rvSimulation1.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
     private void initViewElements(){
         rvSimulation1 = (RecyclerView) findViewById(R.id.rvSimulation1);
+        etSearch = (EditText) findViewById(R.id.etSearch);
+    }
+
+    private void initSearchFilter() {
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // srvfAdapter.getFilter().filter(charSequence.toString());
+                Log.i(TAG, charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     private List<SamplePojo> getDataList() {
