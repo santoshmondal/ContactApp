@@ -22,7 +22,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
 
     private RecyclerView rvSimulation1;
     private EditText etSearch;
-    SimulationRecylerViewWithFilterAdapter srvfAdapter;
+    private SimulationRecylerViewWithFilterAdapter srvfAdapter;
 
 
     @Override
@@ -55,7 +55,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // srvfAdapter.getFilter().filter(charSequence.toString());
+                srvfAdapter.getFilter().filter(charSequence.toString());
                 Log.i(TAG, charSequence.toString());
             }
 
@@ -71,7 +71,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
 
         List<SamplePojo> dataList = new ArrayList<>();
         Random r = new Random();
-        int dataListCount = r.nextInt(10);
+        int dataListCount = r.nextInt(15);
 
         for(int i=0; i<dataListCount; i++) {
             SamplePojo ref = new SamplePojo();
