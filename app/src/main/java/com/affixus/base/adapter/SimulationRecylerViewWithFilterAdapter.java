@@ -96,7 +96,7 @@ public class SimulationRecylerViewWithFilterAdapter extends RecyclerView.Adapter
             } else {
                 final String filterPattern = charSequence.toString().toLowerCase().trim();
                 for (final SamplePojo ref : dataList) {
-                    if (ref.getFirstName().toLowerCase().startsWith(filterPattern)) {
+                    if (ref.getFirstName().toLowerCase().contains(filterPattern)) {
                         dataListFilter.add(ref);
                     }
                 }
