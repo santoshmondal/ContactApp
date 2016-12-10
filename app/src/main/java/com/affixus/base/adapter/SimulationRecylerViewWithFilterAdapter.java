@@ -32,7 +32,7 @@ public class SimulationRecylerViewWithFilterAdapter extends RecyclerView.Adapter
     @Override
     public SimulationRecylerViewWithFilterAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.simulation_layout, parent, false);
+        View view = inflater.inflate(R.layout.simulation_layout_rv_filter, parent, false);
 
         SimulationRecylerViewWithFilterAdapterHolder holder = new SimulationRecylerViewWithFilterAdapterHolder(view);
         return holder;

@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
@@ -35,7 +34,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simulation_recyler_view_with_filter);
+        setContentView(R.layout.simulation_activity_recyler_view_with_filter);
 
         initViewElements();
         initSearchFilter();
@@ -48,7 +47,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.simulation_menu_main, menu);
         initSearchFilterToolbar(menu);
         return true;
     }
@@ -64,7 +63,7 @@ public class SimulationRecylerViewWithFilter extends AppCompatActivity {
         rvSimulation1 = (RecyclerView) findViewById(R.id.rvSimulation1);
         etSearch = (EditText) findViewById(R.id.etSearch);
 
-        // toolbar initialization
+        // simulation_toolbar initialization
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

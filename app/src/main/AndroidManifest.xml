@@ -11,20 +11,24 @@
         android:theme="@style/AppTheme">
 
         <!-- MainActivity Start -->
-        <activity android:name=".activity.MainActivity">
-        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
         <!-- MainActivity Ends -->
 
 
-        <!-- SimulationRecylerViewWithFilter Start-->
-        <activity android:name=".activity.SimulationRecylerViewWithFilter">
+        <!-- SimulationHome Starts -->
+        <activity android:name=".activity.SimulationHome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- SimulationHome Ends -->
+
+        <!-- SimulationRecylerViewWithFilter Start -->
+        <activity android:name=".activity.SimulationRecylerViewWithFilter"></activity>
         <!-- SimulationRecylerViewWithFilter Ends -->
+
 
 
     </application>
