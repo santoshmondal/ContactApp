@@ -17,6 +17,10 @@ public class SamplePojo implements Serializable {
     private String email;
     private String address;
 
+    private String title;
+    private String descr;
+    private String className;
+
     public String getId() {
         return id;
     }
@@ -71,5 +75,29 @@ public class SamplePojo implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 }
