@@ -20,6 +20,7 @@ public class SamplePojo implements Serializable {
     private String title;
     private String descr;
     private String className;
+    private Class<?> activityClass;
 
     public String getId() {
         return id;
@@ -99,5 +100,13 @@ public class SamplePojo implements Serializable {
 
     public void setDescr(String descr) {
         this.descr = descr;
+    }
+
+    public Class<?> getActivityClass() {
+        return activityClass;
+    }
+
+    public void setActivityClass(Class<?> activityClass) {
+        this.activityClass = activityClass;
     }
 }

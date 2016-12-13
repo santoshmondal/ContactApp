@@ -1,5 +1,7 @@
 package com.affixus.base.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +25,11 @@ import java.util.List;
 public class SimulationHomeAdapter extends RecyclerView.Adapter<SimulationHomeAdapter.SimulationHomeAdapterHolder>{
     private static final String TAG = SimulationHomeAdapter.class.getSimpleName();
 
+    private Context context;
     private List<SamplePojo> dataList;
 
-    public SimulationHomeAdapter(List<SamplePojo> dataList){
+    public SimulationHomeAdapter(Context context, List<SamplePojo> dataList){
+        this.context = context;
         this.dataList = dataList;
     }
 
@@ -40,8 +44,28 @@ public class SimulationHomeAdapter extends RecyclerView.Adapter<SimulationHomeAd
     }
 
     @Override
-    public void onBindViewHolder(SimulationHomeAdapterHolder holder, int position) {
+    public void onBindViewHolder(final SimulationHomeAdapterHolder holder, final int position) {
         holder.title.setText(dataList.get(position).getTitle());
+
+
+        /** implement click **/
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SamplePojo dataRef = dataList.get(position);
+                Toast.makeText(view.getContext(), dataRef.getDescr() + " description!!", Toast.LENGTH_SHORT).show();
+
+                Intent newIntent = new Intent(view.getContext(), dataRef.getActivityClass());
+                context.startActivity(newIntent);
+            }
+        });
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "IMAGE_VIEW_CLICK", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -66,7 +90,7 @@ public class SimulationHomeAdapter extends RecyclerView.Adapter<SimulationHomeAd
 
 
             /** implement click **/
-            itemView.setOnClickListener(new View.OnClickListener() {
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
@@ -80,9 +104,7 @@ public class SimulationHomeAdapter extends RecyclerView.Adapter<SimulationHomeAd
                     int position = getAdapterPosition();
                     Toast.makeText(itemView.getContext(), "Image View", Toast.LENGTH_SHORT).show();
                 }
-            });
-
-
+            });*/
         }
     }
 

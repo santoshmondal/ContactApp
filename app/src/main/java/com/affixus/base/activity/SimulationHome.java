@@ -29,7 +29,7 @@ public class SimulationHome extends AppCompatActivity {
 
         /** Adapter **/
         List<SamplePojo> dataList = getActivityList();
-        SimulationHomeAdapter shAdapter = new SimulationHomeAdapter(dataList);
+        SimulationHomeAdapter shAdapter = new SimulationHomeAdapter(this, dataList);
         rvHome.setAdapter(shAdapter);
         rvHome.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -58,11 +58,13 @@ public class SimulationHome extends AppCompatActivity {
         obj1.setTitle("Search Filter");
         obj1.setDescr("Search Filter");
         obj1.setClassName(SimulationRecylerViewWithFilter.class.getName());
+        obj1.setActivityClass(SimulationRecylerViewWithFilter.class);
 
         SamplePojo obj2 = new SamplePojo();
         obj2.setTitle("Search Filter with Menu");
         obj2.setDescr("Search Filter with Menu");
         obj2.setClassName(SimulationRecylerViewWithFilter.class.getName());
+        obj2.setActivityClass(SimulationRecylerViewWithFilter.class);
 
         // Add all object into list
         list.add(obj1);
